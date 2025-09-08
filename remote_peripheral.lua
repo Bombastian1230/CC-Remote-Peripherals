@@ -44,7 +44,6 @@ print("Peripheral type: " .. PERIPHERAL_TYPE)
 print("Protocol: " .. protocol)
 
 while true do
-    print("waiting for call on protocol: " .. protocol)
     local id, message = rednet.receive(protocol)
     local func, args, call_type = message.func, message.args, message.call_type
 
