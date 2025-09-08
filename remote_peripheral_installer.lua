@@ -216,7 +216,7 @@ function PeripheralSetup()
 end
 
 function ControllerSetup()
-    NETWORK_ID = queryUser("What network should this controller look for peripherals on? (number)")
+    NETWORK_ID = queryUser("What network should this controller look for peripherals on? (number)", "number")
     settings.set("network_id.setting", NETWORK_ID)
     print("--------------------------------")
 
