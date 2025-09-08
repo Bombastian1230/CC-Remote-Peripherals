@@ -163,7 +163,6 @@ end
 -- Setup functions
 function PeripheralSetup()
     NETWORK_ID = queryUser("What network should the peripheral be exposed to? (number)", "number")
-    print(NETWORK_ID)
     settings.set("network_id.setting", NETWORK_ID)
     print("--------------------------------")
 
