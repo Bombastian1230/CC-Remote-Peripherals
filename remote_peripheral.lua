@@ -25,8 +25,8 @@ function callFunction(func, arguments)
     elseif args_len == 3 then outputs = {peripheral.call(PERIPHERAL_SIDE, func, arguments[1], arguments[2], arguments[3])}
     elseif args_len == 4 then outputs = {peripheral.call(PERIPHERAL_SIDE, func, arguments[1], arguments[2], arguments[3], arguments[4])}
     elseif args_len == 5 then outputs = {peripheral.call(PERIPHERAL_SIDE, func, arguments[1], arguments[2], arguments[3], arguments[4], arguments[5])}
-    elseif args_len == 6 then outputs = {peripheral.call(PERIPHERAL_SIDE, func, arguments[1], arguments[2], arguments[3], arguments[4], arguments[5], arguments[6])}
-    elseif args_len == 7 then outputs = {peripheral.call(PERIPHERAL_SIDE, func, arguments[1], arguments[2], arguments[3], arguments[4], arguments[5], arguments[6], arguments[7])}
+    -- elseif args_len == 6 then outputs = {peripheral.call(PERIPHERAL_SIDE, func, arguments[1], arguments[2], arguments[3], arguments[4], arguments[5], arguments[6])}
+    -- elseif args_len == 7 then outputs = {peripheral.call(PERIPHERAL_SIDE, func, arguments[1], arguments[2], arguments[3], arguments[4], arguments[5], arguments[6], arguments[7])}
     end
 
     return outputs
