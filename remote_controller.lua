@@ -23,3 +23,11 @@ function find(type)
 
     return device_ids
 end
+
+print("Network ID: " .. tostring(NETWORK_ID))
+
+print("\n To use this module add ")
+term.setTextColor(colors.yellow)
+term.write("local remote_peripheral = require(\"remote_controller\")")
+term.setTextColor(colors.white)
+print(" to the start of your program")
