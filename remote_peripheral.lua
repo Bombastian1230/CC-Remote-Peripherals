@@ -5,17 +5,11 @@ local PERIPHERAL_SIDE = settings.get("side.setting")
 local PERIPHERAL_TYPE = settings.get("type.setting")
 local KEY = settings.get("key.setting")
 
-print("Network id: " .. tostring(NETWORK_ID))
-print("Device id" .. DEVICE_ID)
-print("Peripheral side: " .. PERIPHERAL_SIDE)
-print("Peripheral type: " .. PERIPHERAL_TYPE)
-
 
 -- General variables
 local modem = peripheral.find("modem")
 local protocol = "peripheral_network_" .. tostring(NETWORK_ID)
 -- local response_protocol = "peripheral_network_" .. tostring(NETWORK_ID) .. "device_" .. DEVICE_ID
-
 
 
 function callFunction(func, arguments)
@@ -42,6 +36,12 @@ end
 -- Script starts here
 rednet.open(peripheral.getName(modem))
 rednet.host(protocol, DEVICE_ID)
+
+print("Network id: " .. tostring(NETWORK_ID))
+print("Device id: " .. DEVICE_ID)
+print("Peripheral side: " .. PERIPHERAL_SIDE)
+print("Peripheral type: " .. PERIPHERAL_TYPE)
+print("Protocol: " .. protocol)
 
 while true do
     print("waiting for call on protocol: " .. protocol)
