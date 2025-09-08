@@ -180,8 +180,8 @@ function Setup()
     settings.save()
 
     printColor("Setup done. Rebooting", colors.lime)
-    os.sleep(3)
-    os.reboot()
+    sleep(3)
+    reboot()
 end
 
 
