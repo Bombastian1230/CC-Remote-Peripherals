@@ -46,13 +46,13 @@ rednet.host(protocol, DEVICE_ID)
 while true do
     print("waiting for call on protocol: " .. protocol)
     local id, message = rednet.receive(protocol)
-    local func, args = message.func, message.args--, message.target
+    local func, args, call_type = message.func, message.args, message.call_type
 
-    --if target ~= DEVICE_ID then goto skip end
+    if call_type == "function" then
+        local outputs = callFunction(func, args)
 
-    local outputs = callFunction(func, args)
-
-    rednet.send(id, outputs, protocol)
-
-    --::skip::
+        rednet.send(id, outputs, protocol)
+    else 
+        rednet.send(id, PERIPHERAL_TYPE, protocol .. "_find")
+    end
 end
