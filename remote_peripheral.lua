@@ -53,6 +53,6 @@ while true do
 
         rednet.send(id, outputs, protocol)
     else 
-        rednet.send(id, PERIPHERAL_TYPE, protocol .. "_find")
+        if args == PERIPHERAL_TYPE then rednet.send(id, DEVICE_ID, protocol .. "_find_response") end
     end
 end
