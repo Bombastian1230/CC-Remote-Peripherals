@@ -1,8 +1,5 @@
 local params = {...}
 
--- Requerments
-require("extra_terminal")
-
 -- Setings
 settings.define("is_peripheral.setting", {
     description = "If the computer is a peripheral",
