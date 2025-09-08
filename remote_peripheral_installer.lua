@@ -73,6 +73,21 @@ local PERIPHERAL_SIDE = settings.get("side.setting")
 local PERIPHERAL_TYPE = settings.get("type.setting")
 local KEY = settings.get("key.setting")
 
+
+-- Utility functions
+function downloadFile(url, filename)
+    local response = http.get(url)
+
+    local data = response.readAll()
+    response.close()
+
+    local file = fs.open(filename, "w")
+    file.write(data)
+    file.close()
+    print(filename .. " downloaded")
+end
+
+
 -- Setup functions
 function PeripheralSetup()
     NETWORK_ID = queryUser("What network should the peripheral be exposed to? (number)", "number")
@@ -119,6 +134,9 @@ function PeripheralSetup()
     PERIPHERAL_TYPE = peripheral.getType(periph)
     settings.set("type.setting", PERIPHERAL_TYPE)
 
+    -- Download peripheral file
+    downloadFile("https://raw.githubusercontent.com/Bombastian1230/CC-Remote-Peripherals/refs/heads/main/remote_peripheral.lua", "remote_controller.lua")
+
     -- Set remote_peripheral to run on startup
     local setup_file = fs.open("startup.lua", "w")
     setup_file.write("shell.run(\"remote_peripheral.lua\")")
@@ -146,7 +164,6 @@ function ControllerSetup()
 end
 
 function Setup()
-
     term.clear()
     term.setCursorPos(1,1)
     print("Welcome! Please answer these questions to setup!")
@@ -181,7 +198,7 @@ function Setup()
 
     printColor("Setup done. Rebooting", colors.lime)
     sleep(3)
-    reboot()
+    os.reboot()
 end
 
 
