@@ -41,3 +41,6 @@ luac.out
 
 # Computer craft files
 .settings
+
+# VS Code
+.vscode
