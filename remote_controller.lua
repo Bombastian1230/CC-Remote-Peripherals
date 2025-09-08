@@ -7,7 +7,7 @@ local protocol = "peripheral_network_" .. tostring(NETWORK_ID)
 
 rednet.open(peripheral.getName(modem))
 
-function find(type) 
+function findRemote(type) 
     rednet.broadcast({
         call_type = "type",
         args = type,
@@ -26,8 +26,4 @@ end
 
 print("Network ID: " .. tostring(NETWORK_ID))
 
-print("\n To use this module add ")
-term.setTextColor(colors.yellow)
-term.write("local remote_peripheral = require(\"remote_controller\")")
-term.setTextColor(colors.white)
-print(" to the start of your program")
+textutils.pagedPrint("\nTo use this module add require(remote_controller) to your program. To call a function on a peripheral use callRemote(device_name). device_name is the name you gave to the peripheral during the setup. Alternativly you can use findRemote(type) to the names of every remote peripheral of a certain type.")
