@@ -5,7 +5,7 @@ local DEVICE_ID = "controller"
 local modem = peripheral.find("modem")
 local protocol = "peripheral_network_" .. tostring(NETWORK_ID)
 
-rednet.open(modem)
+rednet.open(peripheral.getName(modem))
 
 function find(type) 
     rednet.broadcast({
