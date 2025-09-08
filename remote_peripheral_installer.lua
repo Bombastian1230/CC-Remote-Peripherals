@@ -229,10 +229,11 @@ function ControllerSetup()
         print("--------------------------------")
     end
 
-    -- Set remote_peripheral to run on startup
-    local setup_file = fs.open("startup.lua", "w")
-    setup_file.write("shell.run(\"remote_controller.lua\")")
-    setup_file.close()
+    -- Download controller file
+    downloadFile("https://raw.githubusercontent.com/Bombastian1230/CC-Remote-Peripherals/refs/heads/main/remote_controller.lua", "remote_controller.lua")
+
+    -- Run controller file
+    shell.run("remote_controller.lua")
 end
 
 function Setup()
