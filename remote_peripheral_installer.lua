@@ -207,7 +207,7 @@ function PeripheralSetup()
     settings.set("type.setting", PERIPHERAL_TYPE)
 
     -- Download peripheral file
-    downloadFile("https://raw.githubusercontent.com/Bombastian1230/CC-Remote-Peripherals/refs/heads/main/remote_peripheral.lua", "remote_controller.lua")
+    downloadFile("https://raw.githubusercontent.com/Bombastian1230/CC-Remote-Peripherals/refs/heads/main/remote_peripheral.lua", "remote_peripheral.lua")
 
     -- Set remote_peripheral to run on startup
     local setup_file = fs.open("startup.lua", "w")
