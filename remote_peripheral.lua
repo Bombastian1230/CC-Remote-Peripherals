@@ -1,5 +1,5 @@
 -- Persistant variables
-local NETWORK_ID = settings.get("network_id.settings")
+local NETWORK_ID = settings.get("network_id.setting")
 local DEVICE_ID = settings.get("device_id.setting")
 local PERIPHERAL_SIDE = settings.get("side.setting")
 local PERIPHERAL_TYPE = settings.get("type.setting")
