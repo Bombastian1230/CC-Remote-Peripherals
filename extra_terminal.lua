@@ -17,7 +17,7 @@ function queryUser(prompt, answer_type, history, completeFn, replaceCharacter, d
             print(prompt)
             term.write("> ")
 
-            user_answer = _G.read(replaceCharacter, history, completeFn, default)
+            user_answer = read(replaceCharacter, history, completeFn, default)
 
             if tonumber(user_answer) == nil then
                 term.setTextColor(colors.yellow)
@@ -35,7 +35,7 @@ function queryUser(prompt, answer_type, history, completeFn, replaceCharacter, d
             print(prompt)
             term.write("> ")
 
-            user_answer = _G.read(replaceCharacter, history, completeFn, default)
+            user_answer = read(replaceCharacter, history, completeFn, default)
 
             if valid_bool_answer[string.lower(user_answer)] == nil then
                 term.setTextColor(colors.yellow)
@@ -52,7 +52,7 @@ function queryUser(prompt, answer_type, history, completeFn, replaceCharacter, d
         print(prompt)
         term.write("> ")
 
-        user_answer = _G.read(replaceCharacter, history, completeFn, default)
+        user_answer = read(replaceCharacter, history, completeFn, default)
     end
    
 
