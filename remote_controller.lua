@@ -2,6 +2,7 @@ local NETWORK_ID = settings.get("network_id.setting")
 local DEVICE_ID = "controller"
 
 -- Other variables
+local params = {...}
 local modem = peripheral.find("modem")
 local protocol = "peripheral_network_" .. tostring(NETWORK_ID)
 
@@ -47,10 +48,15 @@ function callRemote(device_name, func, arg1, arg2, arg3, arg4, arg5)
     return table.unpack(message.outputs)
 end
 
+function help()
+    term.clear()
+    term.setCursorPos(1, 1)
 
-term.clear()
-term.setCursorPos(1, 1)
+    print("Network ID: " .. tostring(NETWORK_ID))
 
-print("Network ID: " .. tostring(NETWORK_ID))
+    textutils.pagedPrint("\nTo use this module add require(remote_controller) to your program. To call a function on a peripheral use callRemote(device_name, function, arg1, arg2, arg3, arg4, arg5). device_name is the name you gave to the peripheral during the setup, function is the name of the function you want to call AS A STRING, arg1-5 are all optional and allow you to pass arguments to the function call. callRemote() returns up to 7 outputs. If you don't remember the device name you set you can use findRemote(type) to the names of every remote peripheral of a certain type or go to the computer hosting the peripheral program as it will say there. To see this again run \"peripheral_controller.lua help\"")
+end
 
-textutils.pagedPrint("\nTo use this module add require(remote_controller) to your program. To call a function on a peripheral use callRemote(device_name, function, arg1, arg2, arg3, arg4, arg5). device_name is the name you gave to the peripheral during the setup, function is the name of the function you want to call AS A STRING, arg1-5 are all optional and allow you to pass arguments to the function call. callRemote() returns up to 7 outputs. If you don't remember the device name you set you can use findRemote(type) to the names of every remote peripheral of a certain type or go to the computer hosting the peripheral program as it will say there.")
+if (params[1] == "help") or (params[1] == "h") then
+    help()
+end

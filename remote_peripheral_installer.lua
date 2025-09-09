@@ -231,9 +231,6 @@ function ControllerSetup()
 
     -- Download controller file
     downloadFile("https://raw.githubusercontent.com/Bombastian1230/CC-Remote-Peripherals/refs/heads/main/remote_controller.lua", "remote_controller.lua")
-
-    -- Run controller file
-    shell.run("remote_controller.lua")
 end
 
 function Setup()
@@ -269,9 +266,15 @@ function Setup()
     print("Saving settings")
     settings.save()
 
-    printColor("Setup done. Rebooting", colors.lime)
-    sleep(3)
-    os.reboot()
+    
+    if IS_PERIPHERAL then
+        printColor("Setup done. Rebooting", colors.lime)
+        sleep(3)
+        os.reboot()  
+    else
+        -- Run controller file help
+        shell.run("remote_controller.lua", "help")
+    end
 end
 
 
