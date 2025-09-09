@@ -21,7 +21,7 @@ function callFunction(func, arguments)
         end
     end
 
-    print("Call funciton " .. func .. " with arguments " ..textutils.serialise(arguments))
+    print("Call funciton " .. func .. " with arguments " ..textutils.serialise(arguments) .. "Arg len: " .. tostring(args_len))
 
     -- Allow for arbitary amount of outputs
     local outputs
@@ -36,6 +36,8 @@ function callFunction(func, arguments)
     -- elseif args_len == 6 then outputs = {peripheral.call(PERIPHERAL_SIDE, func, arguments[1], arguments[2], arguments[3], arguments[4], arguments[5], arguments[6])}
     -- elseif args_len == 7 then outputs = {peripheral.call(PERIPHERAL_SIDE, func, arguments[1], arguments[2], arguments[3], arguments[4], arguments[5], arguments[6], arguments[7])}
     end
+
+    print("Function Output: " .. textutils.serialise(outputs))
 
     return outputs
 end
@@ -57,6 +59,8 @@ while true do
 
     if call_type == "function" then
         local outputs = callFunction(func, args)
+
+        print("Call Output: " .. textutils.serialise(outputs))
 
         rednet.send(id, outputs, protocol)
     else 
