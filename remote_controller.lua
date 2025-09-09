@@ -28,25 +28,28 @@ end
 
 function callRemote(device_name, func, arg1, arg2, arg3, arg4, arg5)
     local send_id = rednet.lookup(protocol, device_name)
+    
 
     local payload = {
         func = func,
         args = {arg1, arg2, arg3, arg4, arg5},
         call_type = "function"
     }
-
+    
+    print(string.format("Sending %s to device %s", textutils.serialise(payload), device_name))
     rednet.send(send_id, payload, protocol)
 
-    ::pre_recive::
     local id, message
     repeat
         id, message = rednet.receive(protocol)
+        print(string.format("Received message from id %d with message %s", id, textutils.serialise(message)))
     until id == send_id
     return table.unpack(message.outputs)
 end
 
 
 term.clear()
+term.setCursorPos(1, 1)
 
 print("Network ID: " .. tostring(NETWORK_ID))
 

@@ -15,6 +15,8 @@ local protocol = "peripheral_network_" .. tostring(NETWORK_ID)
 function callFunction(func, arguments)
     local args_len = #arguments
 
+    print("Call funciton " .. func .. " with arguments " ..textutils.serialise(arguments))
+
     -- Allow for arbitary amount of outputs
     local outputs
 
