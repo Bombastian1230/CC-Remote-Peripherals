@@ -16,9 +16,9 @@ function callFunction(func, arguments)
     local args_len = 0
 
     for _, value in ipairs(arguments) do
-    if value ~= nil then
-        args_len = args_len + 1
-    end
+        if value ~= nil then
+            args_len = args_len + 1
+        end
     end
 
     print("Call funciton " .. func .. " with arguments " ..textutils.serialise(arguments))
