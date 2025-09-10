@@ -260,7 +260,7 @@ function Setup()
     print("Modem detected")
 
     settings.set("has_setup.setting", true)
-    print(settings.get("has_setup.setting"))
+    -- print(settings.get("has_setup.setting"))
 
     sleep(0.25)
     print("Saving settings")

@@ -38,13 +38,13 @@ function callRemote(device_name, func, ...)
         call_type = "function"
     }
     
-    print(string.format("Sending %s to device %s", textutils.serialise(payload), device_name))
+    -- print(string.format("Sending %s to device %s", textutils.serialise(payload), device_name))
     rednet.send(send_id, payload, protocol)
 
     local id, message
     repeat
         id, message = rednet.receive(protocol)
-        print(string.format("Received message from id %d with message %s", id, textutils.serialise(message)))
+        -- print(string.format("Received message from id %d with message %s", id, textutils.serialise(message)))
     until id == send_id
     return message
 end

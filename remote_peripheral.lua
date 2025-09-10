@@ -14,11 +14,11 @@ local protocol = "peripheral_network_" .. tostring(NETWORK_ID)
 
 function callFunction(func, ...)
 
-    print("Call funciton " .. func .. " with arguments " ..textutils.serialise(...))
+    -- print("Call funciton " .. func .. " with arguments " ..textutils.serialise(...))
 
     local output = peripheral.call(PERIPHERAL_SIDE, func, ...)
 
-    print("Function Output: " .. textutils.serialise(output))
+    -- print("Function Output: " .. textutils.serialise(output))
 
     return output
 end
@@ -41,7 +41,7 @@ while true do
     if call_type == "function" then
         local outputs = callFunction(func, args)
 
-        print("Call Output: " .. textutils.serialise(outputs))
+        -- print("Call Output: " .. textutils.serialise(outputs))
 
         rednet.send(id, outputs, protocol)
     else 
