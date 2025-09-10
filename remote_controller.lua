@@ -55,7 +55,7 @@ function help()
 
     print("Network ID: " .. tostring(NETWORK_ID))
 
-    textutils.pagedPrint("\nTo use this module add require(remote_controller) to your program. To call a function on a peripheral use callRemote(device_name, function, arg1, arg2, arg3, arg4, arg5). device_name is the name you gave to the peripheral during the setup, function is the name of the function you want to call AS A STRING, arg1-5 are all optional and allow you to pass arguments to the function call. callRemote() returns up to 7 outputs. If you don't remember the device name you set you can use findRemote(type) to the names of every remote peripheral of a certain type or go to the computer hosting the peripheral program as it will say there. To see this again run \"peripheral_controller.lua help\"")
+    textutils.pagedPrint("\nTo use this module add require(remote_controller) to your program. To call a function on a peripheral use callRemote(device_name, function, ...). device_name is the name you gave to the peripheral during the setup, function is the name of the function you want to call AS A STRING, .. are any arguments you want to pass to the function, works the same as peripheral.call(). If you don't remember the device name you set you can use findRemote(type) to the names of every remote peripheral of a certain type or go to the computer hosting the peripheral program as it will say there. To see this again run \"peripheral_controller.lua help\"")
 end
 
 if (params[1] == "help") or (params[1] == "h") then
