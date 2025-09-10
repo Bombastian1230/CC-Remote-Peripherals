@@ -166,14 +166,14 @@ function PeripheralSetup()
     settings.set("network_id.setting", NETWORK_ID)
     print("--------------------------------")
 
-    local IS_PROTECTED = queryUser("Is this network protected? y/n (yes/no)" , "boolean")
-    print("--------------------------------")
+    -- local IS_PROTECTED = queryUser("Is this network protected? y/n (yes/no)" , "boolean")
+    -- print("--------------------------------")
 
-    if IS_PROTECTED then
-        KEY = queryUser("The key for this network" , "string")
-        settings.set("key.setting", KEY)
-        print("--------------------------------")
-    end
+    -- if IS_PROTECTED then
+    --     KEY = queryUser("The key for this network" , "string")
+    --     settings.set("key.setting", KEY)
+    --     print("--------------------------------")
+    -- end
 
     DEVICE_ID = queryUser("What should this device be called?")
     settings.set("device_id.setting", DEVICE_ID)
@@ -220,14 +220,14 @@ function ControllerSetup()
     settings.set("network_id.setting", NETWORK_ID)
     print("--------------------------------")
 
-    local IS_PROTECTED = queryUser("Should this network be protected? y/n (yes/no)" , "boolean")
-    print("--------------------------------")
+    -- local IS_PROTECTED = queryUser("Should this network be protected? y/n (yes/no)" , "boolean")
+    -- print("--------------------------------")
 
-    if IS_PROTECTED then
-        KEY = queryUser("The key for this network" , "string")
-        settings.set("key.setting", KEY)
-        print("--------------------------------")
-    end
+    -- if IS_PROTECTED then
+    --     KEY = queryUser("The key for this network" , "string")
+    --     settings.set("key.setting", KEY)
+    --     print("--------------------------------")
+    -- end
 
     -- Download controller file
     downloadFile("https://raw.githubusercontent.com/Bombastian1230/CC-Remote-Peripherals/refs/heads/main/remote_controller.lua", "remote_controller.lua")
