@@ -12,34 +12,15 @@ local protocol = "peripheral_network_" .. tostring(NETWORK_ID)
 -- local response_protocol = "peripheral_network_" .. tostring(NETWORK_ID) .. "device_" .. DEVICE_ID
 
 
-function callFunction(func, arguments)
-    local args_len = 0
+function callFunction(func, ...)
 
-    for _, value in ipairs(arguments) do
-        if value ~= nil then
-            args_len = args_len + 1
-        end
-    end
+    print("Call funciton " .. func .. " with arguments " ..textutils.serialise(...))
 
-    print("Call funciton " .. func .. " with arguments " ..textutils.serialise(arguments) .. "Arg len: " .. tostring(args_len))
+    local output = peripheral.call(PERIPHERAL_SIDE, func, ...)
 
-    -- Allow for arbitary amount of outputs
-    local outputs
+    print("Function Output: " .. textutils.serialise(output))
 
-    -- Allow for calls with up to 7 arguments
-    if args_len == 0 then peripheral.call(PERIPHERAL_SIDE, func) 
-    elseif args_len == 1 then outputs = {peripheral.call(PERIPHERAL_SIDE, func, arguments[1])}
-    elseif args_len == 2 then outputs = {peripheral.call(PERIPHERAL_SIDE, func, arguments[1], arguments[2])}
-    elseif args_len == 3 then outputs = {peripheral.call(PERIPHERAL_SIDE, func, arguments[1], arguments[2], arguments[3])}
-    elseif args_len == 4 then outputs = {peripheral.call(PERIPHERAL_SIDE, func, arguments[1], arguments[2], arguments[3], arguments[4])}
-    elseif args_len == 5 then outputs = {peripheral.call(PERIPHERAL_SIDE, func, arguments[1], arguments[2], arguments[3], arguments[4], arguments[5])}
-    -- elseif args_len == 6 then outputs = {peripheral.call(PERIPHERAL_SIDE, func, arguments[1], arguments[2], arguments[3], arguments[4], arguments[5], arguments[6])}
-    -- elseif args_len == 7 then outputs = {peripheral.call(PERIPHERAL_SIDE, func, arguments[1], arguments[2], arguments[3], arguments[4], arguments[5], arguments[6], arguments[7])}
-    end
-
-    print("Function Output: " .. textutils.serialise(outputs))
-
-    return outputs
+    return output
 end
 
 
