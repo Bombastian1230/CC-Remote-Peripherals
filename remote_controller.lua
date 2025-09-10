@@ -51,7 +51,7 @@ function callRemote(device_name, func, arg1, arg2, arg3, arg4, arg5)
         id, message = rednet.receive(protocol)
         print(string.format("Received message from id %d with message %s", id, textutils.serialise(message)))
     until id == send_id
-    return message.outputs
+    return message
 end
 
 function help()
