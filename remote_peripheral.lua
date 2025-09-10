@@ -36,7 +36,7 @@ print("Protocol: " .. protocol)
 
 while true do
     local id, message = rednet.receive(protocol)
-    local func, args call_type = message.func, message.args, message.call_type
+    local func, args, call_type = message.func, message.args, message.call_type
 
     if call_type == "function" then
         local outputs = callFunction(func, args)
