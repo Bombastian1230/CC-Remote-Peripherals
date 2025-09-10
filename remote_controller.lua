@@ -27,19 +27,14 @@ function findRemote(type)
     return device_ids
 end
 
-function callRemote(device_name, func, arg1, arg2, arg3, arg4, arg5)
-    arg1 = arg1 or nil
-    arg2 = arg2 or nil
-    arg3 = arg3 or nil
-    arg4 = arg4 or nil
-    arg5 = arg5 or nil
+function callRemote(device_name, func, ...)
 
     local send_id = rednet.lookup(protocol, device_name)
     
 
     local payload = {
         func = func,
-        args = {arg1, arg2, arg3, arg4, arg5},
+        args = ...,
         call_type = "function"
     }
     
